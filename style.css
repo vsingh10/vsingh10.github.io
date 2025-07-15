@@ -14,6 +14,10 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* =================== NAVBAR =================== */
 nav {
   position: fixed;
@@ -60,6 +64,20 @@ nav {
   text-decoration: none;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-right {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
 
 
 /* =================== HERO BACKGROUND =================== */
@@ -91,6 +109,23 @@ nav {
   background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.5) 100%);
   z-index: 0;
   pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 6rem 1rem 3rem;
+    text-align: center;
+  }
+
+  .hero-image img {
+    max-width: 90vw;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
 }
 
 /* =================== PARTICLE BACKGROUND =================== */
@@ -1297,4 +1332,80 @@ body.light .cert-card {
   background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* ========== RESPONSIVE: ABOUT, EDUCATION, EXPERIENCE ========== */
+@media screen and (max-width: 768px) {
+  .about-container,
+  .education-container,
+  .experience-section .timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flip-card,
+  .education-card,
+  .about-left,
+  .about-right {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .timeline::after {
+    left: 20px;
+  }
+
+  .timeline-entry {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 25px;
+  }
+
+  .timeline-entry.right {
+    left: 0;
+  }
+
+  .timeline-entry.left::after,
+  .timeline-entry.right::after {
+    left: 15px;
+  }
+}
+
+/* ========== RESPONSIVE: PROJECTS ========== */
+@media screen and (max-width: 768px) {
+  .project-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .project-img {
+    height: auto;
+  }
+}
+
+/* ========== RESPONSIVE: CERTIFICATIONS ========== */
+@media screen and (max-width: 768px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    width: 100% !important;
+  }
+}
+
+/* ========== RESPONSIVE: TABS ========== */
+@media screen and (max-width: 768px) {
+  .tab-button {
+    flex: 1 1 45%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
 }
