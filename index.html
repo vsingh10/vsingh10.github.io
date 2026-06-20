@@ -1,736 +1,1007 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vishal Singh | Portfolio</title>
-
-  <!-- Font Awesome for icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vishal Singh — ML & Scientific Computing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Custom stylesheet -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- tsparticles CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
-  <!-- Optional: Smooth scroll -->
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
-  <!-- Particle background -->
-  <div id="tsparticles"></div>
+  <!-- HAMBURGER (mobile) -->
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="ovl" id="ovl"></div>
 
-  <!-- Navbar -->
-  <nav>
-    <a href="#" class="nav-left">Vishal Singh</a>
-    <div class="nav-right">
-      <a href="#about-section">About</a>
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#research">Research</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
+  <!-- ═══════════ TWEAKS PANEL ═══════════ -->
+  <div class="tw-panel" id="twPanel" role="dialog" aria-label="Tweaks">
+    <div class="tw-hd" id="twHd">
+      <div class="tw-hd-l">
+        <span class="tw-hd-dot"></span>
+        <span class="tw-hd-ttl">Tweaks · About</span>
+      </div>
+      <button class="tw-hd-x" id="twClose" aria-label="Close">✕</button>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <div class="hero-bg">
-    <section class="hero" id="about">
-      <div class="hero-text">
-        <p class="intro">Hi, my name is</p>
-        <h1 class="name">Vishal Singh</h1>
-        <h2 class="role">ML & Data Science Researcher</h2>
-        <p class="tags">AI4Science | AI4Health | Data Science | GenAI</p>
-        <p class="description">
-          Engineering professional with a strong foundation in Machine Learning and Deep Learning, focused on solving real-world problems at the intersection of AI and engineering. Deeply interested in Computational Science, Healthcare, and Finance, with experience building scalable, data-driven solutions using tools like Python, TensorFlow, and modern data pipelines. Passionate about applying advanced algorithms to create impactful, intelligent systems across domains.
-        </p>
-
-        <div class="buttons">
-          <a href="assets/Vishal_Resume.pdf" class="btn static" download>
-            <i class="fas fa-download"></i> Download CV
-          </a>
-          <a href="https://github.com/vsingh10" class="social-btn github" target="_blank">
-            <i class="fab fa-github"></i><span>GitHub</span>
-          </a>
-          <a href="https://scholar.google.com/citations?user=NOD9Y0UAAAAJ&hl=en" class="social-btn scholar" target="_blank">
-            <i class="fas fa-graduation-cap"></i><span>Google Scholar</span>
-          </a>
-          <a href="https://www.linkedin.com/in/vishal-singh10/" class="social-btn linkedin" target="_blank">
-            <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
-          </a>
+    <div class="tw-body">
+      <div class="tw-sec">
+        <div class="tw-sec-ttl">Layout</div>
+        <div class="tw-row">
+          <label class="tw-lbl">Highlights position</label>
+          <div class="tw-seg" data-tw="layout">
+            <button data-v="right">Right</button>
+            <button data-v="left">Left</button>
+          </div>
         </div>
       </div>
 
-      <div class="hero-image">
-        <img src="assets/IMG20250217211847.jpg" alt="Vishal's profile photo" />
-        <p class="quote">"Code is our instrument; reality, the dataset."</p>
-      </div>
-    </section>
-  </div>
-
-  <!-- About Section -->
-  <section class="about-me" id="about-section">
-    <h2 class="section-title">About Me</h2>
-
-    <div class="about-container">
-      <div class="about-left">
-        <p class="about-summary">
-          B.E. in Mechanical Engineering at <a href="https://www.thapar.edu/" style="text-decoration: none;">Thapar Institute of Engineering And Technology</a>. My research interests include:
-        </p>
-
-        <div class="interest-tags">
-          <span>Scientific Machine Learning</span>
-          <span>Physics Informed Neural Networks</span>
-          <span>Neural Operators</span>
-          <span>ML for Healthcare</span>
-          <span>ML for Finance</span>
-          <span>Optimization</span>
-          <span>Generative AI</span>
-        </div>
-
-        <p class="about-desc">
-          I’m a recent Mechanical Engineering graduate with a strong interest and hands-on experience in Machine Learning and Data Science. Currently, I’m working as a Machine Learning Intern at the NMCAD Lab, IISc Bengaluru, where I apply ML techniques to problems in aerospace engineering, biomedical engineering, and optimization. 
-        </p>
-
-        <h3 class="skills-title">Skill Sets</h3>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h4><i class="fas fa-code"></i> Languages</h4>
-            <p>Python, Julia, MATLAB, <span style="font-variant: small-caps;">LaTeX</span>, SQL</p>
-          </div>
-          <div class="skill-category">
-            <h4><i class="fas fa-layer-group"></i> Frameworks</h4>
-            <p>PyTorch, TensorFlow, Keras, OpenCV, Streamlit, MLflow, Langchain</p>
-          </div>
-          <div class="skill-category">
-            <h4><i class="fas fa-tools"></i> Developer Tools</h4>
-            <p>Git, VS Code, Google Colab, Jupyter Notebook, Docker</p>
-          </div>
-          <div class="skill-category">
-            <h4><i class="fas fa-cubes"></i> Libraries</h4>
-            <p>Pandas, NumPy, scikit-learn, Matplotlib, Seaborn, Hugging Face, PySINDy</p>
-          </div>
-          <div class="skill-category">
-            <h4><i class="fas fa-desktop"></i> Softwares</h4>
-            <p>PowerBI, Creo Parametric, Ansys, AutoCAD, Microsoft Office</p>
+      <div class="tw-sec">
+        <div class="tw-sec-ttl">Accent color</div>
+        <div class="tw-row">
+          <div class="tw-swatches" data-tw="accent">
+            <button class="tw-sw" data-v="cy" style="background:oklch(0.78 0.13 200);color:oklch(0.78 0.13 200);"
+              aria-label="Cyan"></button>
+            <button class="tw-sw" data-v="mg" style="background:oklch(0.72 0.16 350);color:oklch(0.72 0.16 350);"
+              aria-label="Magenta"></button>
+            <button class="tw-sw" data-v="vt" style="background:oklch(0.7 0.14 290);color:oklch(0.7 0.14 290);"
+              aria-label="Violet"></button>
+            <button class="tw-sw" data-v="gn" style="background:oklch(0.78 0.16 155);color:oklch(0.78 0.16 155);"
+              aria-label="Green"></button>
           </div>
         </div>
       </div>
-      
-      <div class="about-right">
-        <h3>Recent Highlights</h3>
-      
-        <div class="highlight-card">
-          <h4>B.E. Graduation</h4>
-          <p>Graduated with a B.E. in Mechanical Engineering from Thapar University</p>
-        </div>
-      
-        <div class="highlight-card">
-          <h4>MSML 2025 Paper</h4>
-          <p>
-            Paper accepted at 
-            <a href="https://sites.google.com/view/msml2025/home" target="_blank" rel="noopener noreferrer">
-              MSML 2025, Naples, Italy
-            </a>
-          </p>
-        </div>
-      
-        <div class="highlight-card">
-          <h4>I-4AM 2026 Papers</h4>
-          <p>
-            2 Papers accepted at 
-            <a href="https://dm.iisc.ac.in/dm/2025/02/12/i-4am-2026-call-for-abstracts/" target="_blank" rel="noopener noreferrer">
-              I-4AM 2026, IISc Bengaluru
-            </a>
-          </p>
-        </div>
-      
-      </div>
-      
 
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="education-section">
-    <h2 class="section-title">Education</h2>
-  
-    <div class="education-container">
-      <!-- B.E. Entry -->
-      <div class="education-card">
-        <div class="edu-header">
-          <h3>Bachelor of Engineering (Mechanical)</h3>
-          <span class="edu-duration">2021 – 2025</span>
-        </div>
-        <p><a href="https://www.thapar.edu/" target="_blank">Thapar Institute of Engineering and Technology, Patiala</a></p>
-        <p><strong>CGPA:</strong> <em>9.00 out of 10</em></p>
-  
-        <div class="edu-tabs">
-          <span class="tab active" data-tab="academic">🎓 Academic</span>
-          <span class="tab" data-tab="extracurricular">💼 Extracurricular</span>
-          <span class="tab" data-tab="courses">📚 Courses</span>
-        </div>
-        
-        <div class="edu-content tab-content active" data-content="academic">
-          <ul>
-            <li>Graduated with a Bachelor's degree in Mechanical Engineering</li>
-          </ul>
-        </div>
-        
-        <div class="edu-content tab-content" data-content="extracurricular">
-          <ul>
-            <li>🎖 NCC Airwing Cadet (Nov 2022 – Oct 2023) – Participated in leadership & discipline training under NCC India *(left due to medical reasons)*</li>
-            <li>🛠 Core Team Member – Society of Mechanical and Industrial Engineers (SOMIE), organized MATLAB Workshop (Feb 2022 – Mar 2024)</li>
-            <li>🎬 Graphic Designer – Thapar Movie Club (Nov 2022 – Mar 2023), organized movie night for 5000+ students</li>
-            <li>🏛 Student Member – American Society of Mechanical Engineers (ASME), attended technical workshops (Jan 2022 – Jan 2023)</li>
-            <li>🤖 Core team member of Mechatronics and Robotics Club</li>
-          </ul>
-        </div>
-
-        
-<div class="edu-content tab-content" data-content="courses">
-  <div class="course-section">
-    <div class="course-grid">
-      <div>Artificial Intelligence</div>
-      <div>Advanced Calculus</div>
-      <div>Linear Algebra</div>
-      <div>Complex Analysis</div>
-      <div>Differential Equations</div>
-      <div>Fourier Transform</div>
-      <div>Laplace Transform</div>
-      <div>Manufacturing</div>
-      <div>Strength of Materials</div>
-      <div>Theory of Machines</div>
-      <div>Fluid Mechanics</div>
-      <div>Optimization Methods</div>
-      <div>Numerical Analysis</div>
-      <div>Material Science</div>
-      <div>Mechatronic Systems</div>
-      <div>Computer-Aided Design & Analysis</div>
-      <div>Thermodynamics</div>
-      <div>Industrial Engineering</div>
-      <div>Automobile Engineering</div>
-      <div>Vehicle Dynamics</div>
-      <div>Machine Design</div>
-      <div>Graph Theory</div>
-      <div>Fluid Machines</div>
-      <div>Heat Transfer</div>
-      <div>Dynamics & Vibrations</div>
-      <div>Internet of Things</div>
-      <div>Machine Learning</div>
-      <div>Operations Management</div>
-      <div>Machine Learning</div>
-      <div>Deep Learning</div>
-      <div>Computer Vision</div>
-      <div>Julia for Machine Learning</div>
-      <div>Julia for Probabilistic Programming</div>
-      <div>AI for Science and Engineering</div>
-      <div>Generative AI</div>
-    </div>
-  </div>
-  </div>
-</div>
-
-    </div>
-  </section>
-
-<section id="experience" class="experience-section">
-  <h2 class="section-title">Experience</h2>
-  <p class="section-subtitle">From foundational research to practical applications — a journey through cutting-edge AI, mechanics, and scientific computing.</p>
-
-  <div class="timeline">
-
-    <!-- SciML Intern -->
-    <div class="timeline-entry left">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front experience-box">
-            <h3>SciML Intern <span class="badge">Apr 2025 – Present</span></h3>
-            <p><strong>NMCAD Lab, IISc Bengaluru</strong></p>
-            <p>Research on auxetic metamaterials, fatigue crack growth, and Industry 4.0 applications. Contributed to 3 journal publications and 2 conference papers.</p>
+      <div class="tw-sec">
+        <div class="tw-sec-ttl">Bio treatment</div>
+        <div class="tw-row">
+          <label class="tw-lbl">Style</label>
+          <div class="tw-seg" data-tw="bio">
+            <button data-v="rule">Rule</button>
+            <button data-v="plain">Plain</button>
+            <button data-v="quote">Quote</button>
           </div>
-          <div class="flip-card-back experience-box">
-            <h4>Key Achievements</h4>
-            <ul>
-              <li>Developed FEM-PINN hybrid solver for fatigue analysis</li>
-              <li>Published 3 journals and 2 conference papers</li>
-              <li>Presented at ICESM 2025</li>
-            </ul>
+        </div>
+        <div class="tw-row">
+          <div class="tw-toggle" data-tw="tags" role="switch" tabindex="0">
+            <span class="tw-tg-lbl">Show focus tags</span>
+            <span class="tw-tg-sw"></span>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- JuliaHub -->
-    <div class="timeline-entry right">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front experience-box">
-            <h3>Machine Learning Intern <span class="badge">Jan 2025 – Mar 2025</span></h3>
-            <p><strong>JuliaHub, Bengaluru</strong></p>
-            <ul>
-              <li>Enhanced JuliaSimSurrogates for GUI deployment</li>
-              <li>Reduced Surrogatize.jl test time from 3 hrs to 1.5 hrs</li>
-            </ul>
+      <div class="tw-sec">
+        <div class="tw-sec-ttl">Highlights</div>
+        <div class="tw-row">
+          <label class="tw-lbl">Card style</label>
+          <div class="tw-seg" data-tw="hlStyle">
+            <button data-v="cards">Cards</button>
+            <button data-v="minimal">Minimal</button>
+            <button data-v="numbered">Numbered</button>
           </div>
-          <div class="flip-card-back experience-box">
-            <h4>Key Achievements</h4>
-            <ul>
-              <li>Integrated surrogate tuning into cloud workflows</li>
-              <li>Optimized JuliaSimSurrogates UI runtime by 50%</li>
-            </ul>
-          </div>
+        </div>
+        <div class="tw-row">
+          <label class="tw-lbl">Section title</label>
+          <input class="tw-input" id="twHlTitle" type="text" maxlength="40" />
         </div>
       </div>
     </div>
+    <div class="tw-hint"><i class="fas fa-arrows-up-down-left-right"></i>Drag header to reposition</div>
+  </div>
 
-    <!-- Samsung PRISM -->
-    <div class="timeline-entry left">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front experience-box">
-            <h3>Samsung PRISM Intern <span class="badge">Oct 2024 – Apr 2025</span></h3>
-            <p><strong>Samsung R&D Institute, Remote</strong></p>
-            <p>Built a video generation framework using diffusion models under Samsung’s Visual Intelligence Team.</p>
-          </div>
-          <div class="flip-card-back experience-box">
-            <h4>Key Achievements</h4>
-            <ul>
-              <li>Created temporal consistency module for video diffusion</li>
-              <li>Implemented lightweight UNet for faster generation</li>
-            </ul>
+  <!-- ═══════════ SIDEBAR ═══════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-hd">
+      <div class="sb-mark" data-page="hero">PORTFOLIO</div>
+      <div class="sb-name" data-page="hero">VISHAL<span>SINGH</span></div>
+      <div class="sb-role">ML & SCIENTIFIC COMPUTING</div>
+    </div>
+    <nav class="sb-nav">
+      <div class="nav-section">— Navigation</div>
+      <div class="nav-item active" data-page="hero"><span class="ni-num">01</span><i
+          class="ni-icon fas fa-circle-dot"></i>Home</div>
+      <div class="nav-item" data-page="about"><span class="ni-num">02</span><i class="ni-icon fas fa-user"></i>About
+      </div>
+      <div class="nav-item" data-page="education"><span class="ni-num">03</span><i
+          class="ni-icon fas fa-graduation-cap"></i>Education</div>
+      <div class="nav-item" data-page="experience"><span class="ni-num">04</span><i
+          class="ni-icon fas fa-briefcase"></i>Experience</div>
+      <div class="nav-item" data-page="research"><span class="ni-num">05</span><i
+          class="ni-icon fas fa-flask"></i>Research</div>
+      <div class="nav-item" data-page="projects"><span class="ni-num">06</span><i
+          class="ni-icon fas fa-cube"></i>Projects</div>
+      <div class="nav-item" data-page="achievements"><span class="ni-num">07</span><i
+          class="ni-icon fas fa-trophy"></i>Achievements</div>
+      <div class="nav-item" data-page="certifications"><span class="ni-num">08</span><i
+          class="ni-icon fas fa-certificate"></i>Credentials</div>
+      <div class="nav-item" data-page="contact"><span class="ni-num">09</span><i
+          class="ni-icon fas fa-paper-plane"></i>Contact</div>
+    </nav>
+    <div class="sb-ft">
+      <div class="sb-soc">
+        <a href="https://github.com/vsingh10" class="soc" target="_blank" aria-label="GitHub"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vishal-singh10/" class="soc" target="_blank" aria-label="LinkedIn"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="https://scholar.google.com/citations?user=NOD9Y0UAAAAJ&hl=en" class="soc" target="_blank"
+          aria-label="Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="mailto:vishalsinghforcv@email.com" class="soc" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <div class="sb-status">
+        <div class="sdot"></div>OPEN TO OPPORTUNITIES
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════ STAGE ═══════════ -->
+  <div class="stage">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <span class="tb-label">// SECTION PROGRESS</span>
+      <div class="tb-track">
+        <div class="tb-fill" id="tb-fill"></div>
+      </div>
+      <span class="tb-pct" id="tb-pct">01 / 09</span>
+    </div>
+
+    <div class="content">
+
+      <!-- ═════ HERO ═════ -->
+      <section class="page active" id="pg-hero">
+        <div class="page-inner">
+          <div class="hero-grid">
+            <div>
+              <div class="h-status fade f1">SYSTEM ONLINE · OPEN TO ROLES</div>
+              <div class="h-name-row fade f2">
+                <h1 class="h-name">Vishal<br><span class="cy-stroke">Singh</span></h1>
+                <div class="h-avatar-wrap">
+                  <img class="h-avatar" src="assets/IMG20250217211847.jpg" alt="Vishal Singh">
+                </div>
+              </div>
+              <p class="h-role fade f3" id="typedRole"></p>
+              <p class="h-desc fade f5">I work at the intersection of machine learning and computational science,
+                building physics-informed models, neural operators, and LLM-based systems to model and optimize complex
+                phenomena across healthcare, engineering, and intelligent systems, bridging research and real-world
+                deployment.</p>
+              <div class="h-btns fade f6">
+                <a href="assets/Vishal_Resume.pdf" class="btn solid" download><i class="fas fa-arrow-down"></i>Download
+                  CV</a>
+                <span class="btn ghost" data-page="research"><i class="fas fa-flask"></i>Research</span>
+                <span class="btn ghost" data-page="projects"><i class="fas fa-cube"></i>See Projects</span>
+              </div>
+            </div>
+            <div style="width: 100%; display: flex; flex-direction: column;">
+              <div class="h-illus fade f3" id="illus-hero">
+                <div class="h-meta tc">Code is our instrument --- reality, the dataset</div>
+                <div class="h-meta bl">f : ℝⁿ → ℝᵐ</div>
+                <div class="h-meta br">FORWARD PASS</div>
+              </div>
+              <p class="fade f4"
+                style="font-style: italic; color: var(--cy); font-weight: 500; margin-top: 2rem; text-align: center;">
+                "Decisions Determine Destiny"
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Undergraduate Research Assistant -->
-    <div class="timeline-entry right">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front experience-box">
-            <h3>Undergraduate Research Assistant <span class="badge">Feb 2024 – Jun 2025</span></h3>
-            <p><strong>TIET & IIITDM Kancheepuram</strong></p>
-            <ul>
-              <li>Worked in aerospace, biomedical & computational mechanics</li>
-              <li>Explored PINNs, Neural Operators, KANs, PI-KANs</li>
-              <li>Contributing to patents and social-good AI</li>
-            </ul>
+      <!-- ═════ ABOUT ═════ -->
+      <section class="page" id="pg-about">
+        <div class="page-inner">
+          <header class="pg-head fade f1">
+            <div class="pg-eyebrow">02 / About</div>
+            <h2 class="pg-title">A mechanical engineer turned <em>ML researcher.</em></h2>
+            <p class="pg-sub">I started with continuum mechanics and ended up training neural networks to solve PDEs.
+              The bridge between physics and data is where I'm most at home.</p>
+          </header>
+
+          <div class="split about-split fade f2" id="aboutSplit">
+            <div class="about-main">
+              <p class="about-bio" id="aboutBio">
+                B.E. in Mechanical Engineering from <a href="https://www.thapar.edu/" target="_blank">Thapar
+                  Institute of Engineering and Technology</a> (CGPA <strong>9.00/10</strong>), now Scientific ML Intern
+                at <strong>NMCAD Lab, IISc
+                  Bengaluru</strong>. My research applies deep learning to aerospace, biomedical, and optimization
+                problems — and I'm equally at home pushing a paper through review or shipping a Streamlit app for
+                clinicians.
+              </p>
+              <div class="focus-tags" id="focusTags">
+                <span class="ftag">Scientific ML</span>
+                <span class="ftag">Physics-Informed NNs</span>
+                <span class="ftag">Neural Operators</span>
+                <span class="ftag">ML for Healthcare</span>
+                <span class="ftag">ML for Finance</span>
+                <span class="ftag">Optimization</span>
+                <span class="ftag">Generative AI</span>
+              </div>
+
+              <div class="about-illus-row">
+                <div class="illus illus-corners about-illus" id="illus-about">
+                  <span class="ic1"></span><span class="ic2"></span>
+                  <div class="illus-meta"><span>UNIT.CELL</span><span>· 0×A1</span></div>
+                </div>
+                <div class="illus illus-corners about-illus" id="illus-about-pinn">
+                  <span class="ic1"></span><span class="ic2"></span>
+                  <div class="illus-meta"><span>PINN.FIELD</span><span>· u(x,t)</span></div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="about-aside" id="aboutAside">
+              <div class="section-mini-head" id="hlTitle">Recent Highlights</div>
+              <div class="hl-stack" id="hlStack">
+                <div class="hl-card">
+                  <div class="hl-dot"><i class="fas fa-graduation-cap"></i></div>
+                  <div>
+                    <h4>I4AM, IISc Bengaluru, 2026</h4>
+                    <p>Presented paper on optimization of re-entrant auxetic structures using neural network based
+                      optimization algorithm</p>
+                  </div>
+                </div>
+                <div class="hl-card">
+                  <div class="hl-dot"><i class="fas fa-graduation-cap"></i></div>
+                  <div>
+                    <h4>Data Scientist @ SBX Corp., Japan</h4>
+                    <p>Got a full-time offer from SBX Corp., Japan. Working on LLMs for healthcare applications.</p>
+                  </div>
+                </div>
+                <div class="hl-card">
+                  <div class="hl-dot"><i class="fas fa-graduation-cap"></i></div>
+                  <div>
+                    <h4>B.E. Graduation</h4>
+                    <p>Graduated with a B.E. in Mechanical Engineering, from Thapar Institute of Engineering and
+                      Technology — top 10% with CGPA 9.00.</p>
+                  </div>
+                </div>
+                <div class="hl-card">
+                  <div class="hl-dot"><i class="fas fa-file-lines"></i></div>
+                  <div>
+                    <h4>MSML 2025 · Naples</h4>
+                    <p>Presented paper on optimization of anti-tetrachiral auxtic structure using a neural network based
+                      optimization algorithm</p>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
-          <div class="flip-card-back experience-box">
-            <h4>Key Achievements</h4>
-            <ul>
-              <li>First-author paper on PINNs for biomedical analysis</li>
-              <li>Trained KANs on multi-physics problems</li>
-              <li>Received internal R&D grant for healthcare AI</li>
-            </ul>
+
+          <!-- TECH STACK — categorized cards (no bars) -->
+          <div style="margin-top:4rem;" class="fade f3">
+            <div class="section-mini-head">Tech Stack</div>
+            <div class="stack-grid">
+              <div class="stack-card">
+                <div class="sc-head"><span class="sc-name">Languages</span><i class="sc-icon fas fa-code"></i></div>
+                <div class="sc-list">
+                  <span>Python</span><span>Julia</span><span>MATLAB</span><span>LaTeX</span><span>SQL</span>
+                </div>
+              </div>
+              <div class="stack-card">
+                <div class="sc-head"><span class="sc-name">LLM Tools & Frameworks</span><i
+                    class="sc-icon fas fa-robot"></i></div>
+                <div class="sc-list">
+                  <span>LangChain</span><span>DSPy</span><span>Unsloth</span><span>Hugging Face</span><span>Phoenix
+                    Arize</span><span>MLflow</span><span>Langfuse</span>
+                </div>
+              </div>
+              <div class="stack-card">
+                <div class="sc-head"><span class="sc-name">Frameworks</span><i class="sc-icon fas fa-layer-group"></i>
+                </div>
+                <div class="sc-list">
+                  <span>PyTorch</span><span>TensorFlow</span><span>Keras</span><span>OpenCV</span><span>Streamlit</span>
+                </div>
+              </div>
+              <div class="stack-card">
+                <div class="sc-head"><span class="sc-name">Developer Tools</span><i class="sc-icon fas fa-terminal"></i>
+                </div>
+                <div class="sc-list">
+                  <span>Git</span><span>VS Code</span><span>Google Colab</span><span>Jupyter
+                    Notebook</span><span>Docker</span>
+                </div>
+              </div>
+              <div class="stack-card">
+                <div class="sc-head"><span class="sc-name">Libraries</span><i class="sc-icon fas fa-cubes-stacked"></i>
+                </div>
+                <div class="sc-list">
+                  <span>Pandas</span><span>NumPy</span><span>Scikit-Learn</span><span>Matplotlib</span><span>Seaborn</span><span>PySINDy</span>
+                </div>
+              </div>
+              <div class="stack-card">
+                <div class="sc-head"><span class="sc-name">Softwares</span><i class="sc-icon fas fa-desktop"></i></div>
+                <div class="sc-list">
+                  <span>PowerBI</span><span>Microsoft Excel</span><span>Creo
+                    Parametric</span><span>Ansys</span><span>AutoCAD</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- MITACS Globalink -->
-    <div class="timeline-entry left">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front experience-box">
-            <h3>MITACS Globalink Research Intern <span class="badge">Jun 2024 – Aug 2024</span></h3>
-            <p><strong>École Polytechnique de Montréal, Canada</strong></p>
-            <p>Developed physics-based ML models (FNO, DeepONet, PINO) for porous media simulation.</p>
-          </div>
-          <div class="flip-card-back experience-box">
-            <h4>Key Achievements</h4>
-            <ul>
-              <li>Trained FNO & PINO on 3D Darcy flow datasets</li>
-              <li>Published internal report on permeability prediction</li>
-              <li>Built custom collocation loss function</li>
-            </ul>
+      <!-- ═════ EDUCATION ═════ -->
+      <section class="page" id="pg-education">
+        <div class="page-inner">
+          <header class="pg-head fade f1">
+            <div class="pg-eyebrow">03 / Education</div>
+            <h2 class="pg-title">Foundation in <em>rigor and curiosity.</em></h2>
+            <p class="pg-sub">Mechanical engineering taught me to model the physical world; the rest came from staying
+              curious about how data could do it better.</p>
+          </header>
+
+          <div class="split flip fade f2">
+            <div class="illus illus-corners" id="illus-education">
+              <span class="ic1"></span><span class="ic2"></span>
+              <div class="illus-meta"><span>KNOWLEDGE.MODEL</span><span>· CGPA 9.00</span></div>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-head">
+                <h3>B.E. — Mechanical Engineering</h3>
+                <span class="edu-dur">2021 — 2025</span>
+              </div>
+              <p class="edu-inst"><a href="https://www.thapar.edu/" target="_blank">Thapar Institute of Engineering &
+                  Technology, Patiala</a></p>
+              <div class="edu-cgpa">CGPA <b>9.00 / 10</b> · Top 10% of department</div>
+
+              <div class="edu-tabs">
+                <span class="etab on" data-etab="ac">Academic</span>
+                <span class="etab" data-etab="ex">Extracurricular</span>
+                <span class="etab" data-etab="co">Coursework</span>
+              </div>
+              <div class="etab-c on" id="etab-ac">
+                <ul>
+                  <li>Graduated with B.E. in Mechanical Engineering — CGPA 9.00/10</li>
+                  <li>Top 10% of department; multiple merit scholarships</li>
+                  <li>Final-year capstone on a semi-autonomous water-cleaning robot</li>
+                </ul>
+              </div>
+              <div class="etab-c" id="etab-ex">
+                <ul>
+                  <li>NCC Air Wing Cadet (Nov 2022 — Oct 2023)</li>
+                  <li>Core team — SOMIE; organized MATLAB workshops 2022–2024</li>
+                  <li>Graphic Designer — Thapar Movie Club (5,000+ students)</li>
+                  <li>Student member — ASME</li>
+                  <li>Core team — Mechatronics & Robotics Club</li>
+                </ul>
+              </div>
+              <div class="etab-c" id="etab-co">
+                <div class="crs">
+                  <div>Artificial Intelligence</div>
+                  <div>Advanced Calculus</div>
+                  <div>Linear Algebra</div>
+                  <div>Complex Analysis</div>
+                  <div>Differential Equations</div>
+                  <div>Fourier Transform</div>
+                  <div>Laplace Transform</div>
+                  <div>Manufacturing</div>
+                  <div>Strength of Materials</div>
+                  <div>Theory of Machines</div>
+                  <div>Fluid Mechanics</div>
+                  <div>Optimization Methods</div>
+                  <div>Numerical Analysis</div>
+                  <div>Material Science</div>
+                  <div>Mechatronic Systems</div>
+                  <div>Computer-Aided Design & Analysis</div>
+                  <div>Thermodynamics</div>
+                  <div>Industrial Engineering</div>
+                  <div>Automobile Engineering</div>
+                  <div>Vehicle Dynamics</div>
+                  <div>Machine Design</div>
+                  <div>Graph Theory</div>
+                  <div>Fluid Machines</div>
+                  <div>Heat Transfer</div>
+                  <div>Dynamics & Vibrations</div>
+                  <div>Internet of Things</div>
+                  <div>Machine Learning</div>
+                  <div>Operations Management</div>
+                  <div>Deep Learning</div>
+                  <div>Computer Vision</div>
+                  <div>Julia for Machine Learning</div>
+                  <div>AI for Science and Engineering</div>
+                  <div>LLM Engineering</div>
+                  <div>Introduction to Software Engineering</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- IIT Delhi -->
-    <div class="timeline-entry right">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front experience-box">
-            <h3>Deep Learning Intern <span class="badge">Jun 2023 – Jun 2024</span></h3>
-            <p><strong>SMICR Group, IIT Delhi</strong></p>
-            <ul>
-              <li>Predicted boundary layer thickness on LPT blades (FNO – 91% accuracy)</li>
-              <li>Built ANN models for aerodynamic coefficients</li>
-            </ul>
-          </div>
-          <div class="flip-card-back experience-box">
-            <h4>Key Achievements</h4>
-            <ul>
-              <li>Implemented solver-free aerodynamic prediction pipeline</li>
-              <li>Integrated CFD data into ML-ready form</li>
-            </ul>
+      <!-- ═════ EXPERIENCE ═════ -->
+      <section class="page" id="pg-experience">
+        <div class="page-inner">
+          <header class="pg-head fade f1">
+            <div class="pg-eyebrow">04 / Experience</div>
+            <h2 class="pg-title">Six missions across <em>research labs and industry.</em></h2>
+            <p class="pg-sub">From CFD pipelines at IIT Delhi to surrogate models at JuliaHub — pick a mission to see
+              the brief.</p>
+          </header>
+
+          <div class="exp-grid fade f2">
+            <div class="exp-menu">
+              <div class="exp-tab on" data-exp="e1">
+                <div class="et-co">IISc Bengaluru</div>
+                <div class="et-role">SciML Intern</div>
+                <div class="et-yr">Apr 2025 — Now</div>
+              </div>
+              <div class="exp-tab" data-exp="e2">
+                <div class="et-co">JuliaHub</div>
+                <div class="et-role">ML Intern</div>
+                <div class="et-yr">Jan — Mar 2025</div>
+              </div>
+              <div class="exp-tab" data-exp="e3">
+                <div class="et-co">Samsung R&D</div>
+                <div class="et-role">PRISM Intern</div>
+                <div class="et-yr">Oct 2024 — Apr 2025</div>
+              </div>
+              <div class="exp-tab" data-exp="e4">
+                <div class="et-co">TIET / IIITDM</div>
+                <div class="et-role">UG Researcher</div>
+                <div class="et-yr">Feb 2024 — Jun 2025</div>
+              </div>
+              <div class="exp-tab" data-exp="e5">
+                <div class="et-co">École Polytechnique MTL</div>
+                <div class="et-role">MITACS Intern</div>
+                <div class="et-yr">Jun — Aug 2024</div>
+              </div>
+              <div class="exp-tab" data-exp="e6">
+                <div class="et-co">IIT Delhi</div>
+                <div class="et-role">DL Intern</div>
+                <div class="et-yr">Jun 2023 — Jun 2024</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="exp-detail on" id="e1">
+                <div class="exp-detail-head">
+                  <div class="exp-co-name">NMCAD LAB · IISc BENGALURU</div>
+                  <div class="exp-role-big">Scientific ML Intern</div>
+                  <div class="exp-period">APR 2025 — PRESENT</div>
+                </div>
+                <p class="exp-desc">Research on auxetic metamaterials, fatigue crack growth prediction, and Industry 4.0
+                  applications — using physics-informed neural networks and hybrid FEM-PINN solvers.</p>
+                <div class="exp-kpis">
+                  <div class="kpi">
+                    <div class="kpi-val">3</div>
+                    <div class="kpi-lbl">Journals</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">2</div>
+                    <div class="kpi-lbl">Conferences</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">FEM+PINN</div>
+                    <div class="kpi-lbl">Method</div>
+                  </div>
+                </div>
+                <ul class="exp-list">
+                  <li>Built FEM-PINN hybrid solver for fatigue crack growth analysis</li>
+                  <li>3 journal papers + 2 conference papers published or submitted</li>
+                  <li>Presented work at ICESM 2025</li>
+                </ul>
+              </div>
+              <div class="exp-detail" id="e2">
+                <div class="exp-detail-head">
+                  <div class="exp-co-name">JULIAHUB · BENGALURU</div>
+                  <div class="exp-role-big">Machine Learning Intern</div>
+                  <div class="exp-period">JAN 2025 — MAR 2025</div>
+                </div>
+                <p class="exp-desc">Enhanced JuliaSimSurrogates for GUI deployment and optimized the Surrogatize.jl
+                  testing pipeline, cutting test time by 50%.</p>
+                <div class="exp-kpis">
+                  <div class="kpi">
+                    <div class="kpi-val">50%</div>
+                    <div class="kpi-lbl">Test Time Cut</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">GUI</div>
+                    <div class="kpi-lbl">Deployment</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">Julia</div>
+                    <div class="kpi-lbl">Stack</div>
+                  </div>
+                </div>
+                <ul class="exp-list">
+                  <li>Cut Surrogatize.jl test runtime from 3 hours down to 1.5 hours</li>
+                  <li>Integrated surrogate tuning into cloud workflows</li>
+                  <li>Polished JuliaSimSurrogates UI for GUI deployment</li>
+                </ul>
+              </div>
+              <div class="exp-detail" id="e3">
+                <div class="exp-detail-head">
+                  <div class="exp-co-name">SAMSUNG R&D · REMOTE</div>
+                  <div class="exp-role-big">Samsung PRISM Intern</div>
+                  <div class="exp-period">OCT 2024 — APR 2025</div>
+                </div>
+                <p class="exp-desc">Built a video-generation framework using diffusion models, working under Samsung's
+                  Visual Intelligence team.</p>
+                <div class="exp-kpis">
+                  <div class="kpi">
+                    <div class="kpi-val">Diffusion</div>
+                    <div class="kpi-lbl">Method</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">UNet</div>
+                    <div class="kpi-lbl">Arch</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">Video</div>
+                    <div class="kpi-lbl">Generation</div>
+                  </div>
+                </div>
+                <ul class="exp-list">
+                  <li>Designed temporal consistency module for video diffusion</li>
+                  <li>Implemented lightweight UNet for faster generation</li>
+                </ul>
+              </div>
+              <div class="exp-detail" id="e4">
+                <div class="exp-detail-head">
+                  <div class="exp-co-name">TIET & IIITDM KANCHEEPURAM</div>
+                  <div class="exp-role-big">Undergraduate Research Assistant</div>
+                  <div class="exp-period">FEB 2024 — JUN 2025</div>
+                </div>
+                <p class="exp-desc">Explored PINNs, Neural Operators, KANs and PI-KANs applied to aerospace, biomedical
+                  and computational mechanics problems.</p>
+                <div class="exp-kpis">
+                  <div class="kpi">
+                    <div class="kpi-val">PINN</div>
+                    <div class="kpi-lbl">Framework</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">KAN</div>
+                    <div class="kpi-lbl">Arch</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">Patent</div>
+                    <div class="kpi-lbl">Filed</div>
+                  </div>
+                </div>
+                <ul class="exp-list">
+                  <li>First-author paper on PINNs for biomedical analysis</li>
+                  <li>Trained KANs on multi-physics simulation problems</li>
+                  <li>Received internal R&D grant for healthcare AI</li>
+                </ul>
+              </div>
+              <div class="exp-detail" id="e5">
+                <div class="exp-detail-head">
+                  <div class="exp-co-name">ÉCOLE POLYTECHNIQUE DE MONTRÉAL · CANADA</div>
+                  <div class="exp-role-big">MITACS Globalink Research Intern</div>
+                  <div class="exp-period">JUN 2024 — AUG 2024</div>
+                </div>
+                <p class="exp-desc">Fully funded research developing FNO, DeepONet, and PINO models for porous media
+                  flow simulation.</p>
+                <div class="exp-kpis">
+                  <div class="kpi">
+                    <div class="kpi-val">FNO</div>
+                    <div class="kpi-lbl">Arch</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">3D</div>
+                    <div class="kpi-lbl">Darcy Flow</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">MITACS</div>
+                    <div class="kpi-lbl">Fellowship</div>
+                  </div>
+                </div>
+                <ul class="exp-list">
+                  <li>Trained FNO and PINO on 3D Darcy flow datasets</li>
+                  <li>Custom collocation loss for PINO training</li>
+                  <li>Published internal report on permeability prediction</li>
+                </ul>
+              </div>
+              <div class="exp-detail" id="e6">
+                <div class="exp-detail-head">
+                  <div class="exp-co-name">SMICR GROUP · IIT DELHI</div>
+                  <div class="exp-role-big">Deep Learning Intern</div>
+                  <div class="exp-period">JUN 2023 — JUN 2024</div>
+                </div>
+                <p class="exp-desc">Predicted boundary-layer thickness on LPT blades using FNO at 91% accuracy and built
+                  ANN models for aerodynamic coefficients.</p>
+                <div class="exp-kpis">
+                  <div class="kpi">
+                    <div class="kpi-val">91%</div>
+                    <div class="kpi-lbl">FNO Accuracy</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">ANN</div>
+                    <div class="kpi-lbl">Aero Model</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">CFD</div>
+                    <div class="kpi-lbl">Pipeline</div>
+                  </div>
+                </div>
+                <ul class="exp-list">
+                  <li>91% accuracy with FNO on boundary-layer thickness</li>
+                  <li>Solver-free aerodynamic prediction pipeline</li>
+                  <li>Integrated CFD data into ML-ready format</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-  </div>
-</section>
+      <!-- ═════ RESEARCH ═════ -->
+      <section class="page" id="pg-research">
+        <div class="page-inner">
+          <header class="pg-head fade f1">
+            <div class="pg-eyebrow">06 / Research</div>
+            <h2 class="pg-title">Papers, patents and <em>book chapters.</em></h2>
+            <p class="pg-sub">Mostly on physics-informed learning, neural operators and metamaterial design. A complete
+              list lives on Google Scholar — selected highlights below.</p>
+          </header>
 
-  <!-- Project Section -->
+          <div class="split flip fade f2">
+            <div class="illus illus-corners" id="illus-research">
+              <span class="ic1"></span><span class="ic2"></span>
+              <div class="illus-meta"><span>FIELD · u(x,t)</span><span>· ∇·u = 0</span></div>
+            </div>
 
-<section id="projects" class="project-section">
-  <h2 class="section-title">Projects</h2>
-  <p class="section-subtitle">A showcase of applied intelligence, elegant modeling, and creative engineering.</p>
+            <div>
+              <div class="rtabs">
+                <button class="rtab on" data-rtab="rj">Journal</button>
+                <button class="rtab" data-rtab="rc2">Conference</button>
+                <button class="rtab" data-rtab="rp">Patent</button>
+                <button class="rtab" data-rtab="rb">Book</button>
+              </div>
 
-  <div class="project-row">
-    <!-- Project 1 -->
-    <div class="project-card">
-      <img src="assets/Screenshot 2025-07-15 182645.png" alt="AI Simulation Dashboard" class="project-img">
-      <h3 class="project-title">Breast Cancer Prediction Web App</h3>
-      <p class="project-desc">Built a Streamlit app for breast cancer classification (97% accuracy) with logistic regression, radar chart visualization, and modular deployment.</p>
-      <a href="https://breastcancerpredictapp.streamlit.app/" class="project-link">Live App →</a>
-    </div>
- 
-    <div class="project-card">
-      <img src="assets/Screenshot 2025-07-30 165227.png" alt="Flow Field Predictor" class="project-img restart-gif" id="flowFieldGif">
-      <h3 class="project-title">Jupiter Chatbot</h3>
-      <p class="project-desc">
-        Meet Jupiter Chatbot – your friendly, reliable assistant for navigating 
-        <a href="https://jupiter.money" target="_blank" rel="noopener noreferrer">Jupiter.Money</a>, 
-        a website that helps you manage your money. Get accurate answers based on official services, policies, and features.
-      </p>
-        <a href="https://jupiterchatbot.streamlit.app/" class="project-link">Live App →</a>
-    </div>
+              <div class="rtab-c on" id="rj">
+                <div class="rc">
+                  <h4>Physics-Informed Neural Network for a 1D Solid Mechanics Problem</h4>
+                  <p><strong>Singh, V.</strong>, Harursampath, D., et al.</p>
+                  <p><em>Modelling, 2024 — 5, 1532–1549</em></p>
+                  <div class="trow"><a href="https://doi.org/10.3390/modelling5040080" target="_blank"
+                      class="tag">DOI</a><span class="tag">Published</span></div>
+                </div>
+                <div class="rc">
+                  <h4>Detection of Structured False Data Injection in RL-Controlled Artificial Pancreas Systems</h4>
+                  <p><strong>Vishal Singh</strong>, et al.</p>
+                  <p><em>Submitted to IEEE Transactions on Industrial Informatics</em></p>
+                  <div class="trow"><span class="tag warn">Under Review</span></div>
+                </div>
+                <div class="rc">
+                  <h4>Neural Optimization Machine for Auxetic Metamaterial Design</h4>
+                  <p><strong>Vishal Singh</strong>, et al.</p>
+                  <p><em>Submitted to Journal of Computational Science</em></p>
+                  <div class="trow"><span class="tag warn">Under Review</span></div>
+                </div>
+                <div class="rc">
+                  <h4>Neural Optimization of Anti-Tetrachiral Auxetic Metastructures</h4>
+                  <p><strong>Vishal Singh</strong>, et al. — <em>Ongoing manuscript</em></p>
+                  <div class="trow"><span class="tag warn">In Progress</span></div>
+                </div>
+                <div class="rc">
+                  <h4>KAN-Based Prognostics for Remaining Useful Life of Aircraft Engines</h4>
+                  <p><strong>Vishal Singh</strong>, et al. — <em>Ongoing manuscript</em></p>
+                  <div class="trow"><span class="tag warn">In Progress</span></div>
+                </div>
+              </div>
+              <div class="rtab-c" id="rc2">
+                <div class="rc">
+                  <h4>PINN for Glucose-Insulin Dynamics in Type-1 Diabetes</h4>
+                  <p><strong>Vishal Singh</strong>, et al.</p>
+                  <p><em>AICOMAS 2025 · Paris</em></p>
+                </div>
+                <div class="rc">
+                  <h4>Physics-Enhanced NN for Re-Entrant Auxetic Structures</h4>
+                  <p><strong>Vishal Singh</strong>, et al.</p>
+                  <p><em>MSML 2025 · Naples</em></p>
+                </div>
+              </div>
+              <div class="rtab-c" id="rp">
+                <div class="rc">
+                  <h4>Pseudo-Artificial Pancreas — AI-Based Insulin Dosage Recommendation</h4>
+                  <p>A low-cost decision-support system for Type-1 diabetes management.</p>
+                  <div class="trow"><span class="tag">Patent Filed</span></div>
+                </div>
+              </div>
+              <div class="rtab-c" id="rb">
+                <div class="rc">
+                  <h4>Optimal Auxetic Metamaterial Structures — AI-Based Design Framework</h4>
+                  <p><strong>Vishal Singh</strong></p>
+                  <p><em>I-4AM 2026, IISc / Springer (forthcoming)</em></p>
+                  <div class="trow"><span class="tag">Book Chapter</span></div>
+                </div>
+                <div class="rc">
+                  <h4>Piezoelectric Auxetic Energy Harvesting Devices</h4>
+                  <p><strong>Vishal Singh</strong></p>
+                  <p><em>I-4AM 2026, IISc / Springer (forthcoming)</em></p>
+                  <div class="trow"><span class="tag">Book Chapter</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Project 2 -->
-    <div class="project-card">
-      <img src="assets/WhatsApp Image 2024-11-28 at 11.45.35 AM (1).jpeg" alt="Surrogate Modeling Toolkit" class="project-img">
-      <h3 class="project-title">Semi-Autonomous Water Cleaning Robot [Final Year Capstone Project] </h3>
-      <p class="project-desc">Designed a remotely operated river-cleaning robot using ESP32 and BTS7960 for motor control, with CAD modeling and ANSYS simulations to optimize fluid flow and enhance debris collection efficiency.</p>
-      <a href="https://sites.google.com/thapar.edu/rc-water-cleaning-robot/home" class="project-link">More Details →</a>
-    </div>
+      <!-- ═════ PROJECTS ═════ -->
+      <section class="page" id="pg-projects">
+        <div class="page-inner">
+          <header class="pg-head fade f1">
+            <div class="pg-eyebrow">05 / Projects</div>
+            <h2 class="pg-title">Things I built and <em>actually shipped.</em></h2>
+            <p class="pg-sub">Mostly research-adjacent — surrogate models, ML web apps, a robot. The kind of code that
+              touches real users or real physics.</p>
+          </header>
 
-    <!-- Project 3: GIF that restarts -->
-    <div class="project-card">
-      <img src="assets/output.gif" alt="Flow Field Predictor" class="project-img restart-gif" id="flowFieldGif">
-      <h3 class="project-title">Fourier Neural Operator for Predicting Flow in Porous Media</h3>
-      <p class="project-desc">Trained a Fourier Neural Operator for predicting flow in porous media, capturing complex spatiotemporal dynamics across varying conditions in fluid simulations.</p>
-    </div>
+          <div class="proj-grid fade f2">
+            <div class="proj-card">
+              <div class="pimg">
+                <div class="pimg-stripes"></div>
+                <div class="pimg-label">STREAMLIT · LR</div>
+                <div class="pimg-icon"><i class="fas fa-stethoscope"></i></div>
+              </div>
+              <div class="pbody">
+                <h3 class="ptitle">Breast Cancer Prediction Web App</h3>
+                <p class="pdesc">Streamlit app reaching 97% accuracy on diagnostic data — logistic regression,
+                  radar-chart visualisation, modular deployment.</p>
+                <div class="pchips"><span class="pchip">Python</span><span class="pchip">scikit-learn</span><span
+                    class="pchip">Streamlit</span></div>
+                <a href="https://breastcancerpredictapp.streamlit.app/" class="plink" target="_blank">Live App <i
+                    class="fas fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <div class="proj-card">
+              <div class="pimg">
+                <div class="pimg-stripes"></div>
+                <div class="pimg-label">RAG · CHATBOT</div>
+                <div class="pimg-icon"><i class="fas fa-comments"></i></div>
+              </div>
+              <div class="pbody">
+                <h3 class="ptitle">Jupiter Chatbot</h3>
+                <p class="pdesc">A retrieval-augmented assistant for Jupiter.Money that answers questions grounded in
+                  their official services and policies.</p>
+                <div class="pchips"><span class="pchip">RAG</span><span class="pchip">LangChain</span><span
+                    class="pchip">Streamlit</span></div>
+                <a href="https://jupiterchatbot.streamlit.app/" class="plink" target="_blank">Live App <i
+                    class="fas fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <div class="proj-card">
+              <div class="pimg">
+                <div class="pimg-stripes"></div>
+                <div class="pimg-label">CAPSTONE · IOT</div>
+                <div class="pimg-icon"><i class="fas fa-robot"></i></div>
+              </div>
+              <div class="pbody">
+                <h3 class="ptitle">Semi-Autonomous Water Cleaning Robot</h3>
+                <p class="pdesc">ESP32 + BTS7960 river-cleaning robot with full ANSYS simulations of the propulsion
+                  system. Final-year capstone.</p>
+                <div class="pchips"><span class="pchip">ESP32</span><span class="pchip">Ansys</span><span
+                    class="pchip">CAD</span></div>
+                <a href="https://sites.google.com/thapar.edu/rc-water-cleaning-robot/home" class="plink"
+                  target="_blank">Project Site <i class="fas fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <div class="proj-card">
+              <div class="pimg">
+                <div class="pimg-stripes"></div>
+                <div class="pimg-label">FNO · OPERATOR</div>
+                <div class="pimg-icon"><i class="fas fa-water"></i></div>
+              </div>
+              <div class="pbody">
+                <h3 class="ptitle">FNO — Porous Media Flow</h3>
+                <p class="pdesc">Fourier Neural Operator capturing spatiotemporal dynamics of fluid flow across
+                  simulation conditions.</p>
+                <div class="pchips"><span class="pchip">PyTorch</span><span class="pchip">FNO</span><span
+                    class="pchip">CFD</span></div>
+                <span class="plink">Internal Report</span>
+              </div>
+            </div>
+            <div class="proj-card">
+              <div class="pimg">
+                <div class="pimg-stripes"></div>
+                <div class="pimg-label">GPR · FINANCE</div>
+                <div class="pimg-icon"><i class="fas fa-chart-line"></i></div>
+              </div>
+              <div class="pbody">
+                <h3 class="ptitle">Apple Stock Prediction · GPR</h3>
+                <p class="pdesc">Gaussian Process Regression with uncertainty quantification, custom feature engineering
+                  and hyperparameter tuning.</p>
+                <div class="pchips"><span class="pchip">GPR</span><span class="pchip">scikit-learn</span><span
+                    class="pchip">Pandas</span></div>
+                <a href="https://github.com/vsingh10/Apple-Stock-Pred-via-GPR" class="plink" target="_blank">GitHub <i
+                    class="fas fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <div class="proj-card">
+              <div class="pimg">
+                <div class="pimg-stripes"></div>
+                <div class="pimg-label">PINN · BIOMED</div>
+                <div class="pimg-icon"><i class="fas fa-heart-pulse"></i></div>
+              </div>
+              <div class="pbody">
+                <h3 class="ptitle">Glucose-Insulin PINN</h3>
+                <p class="pdesc">Physics-informed network modeling Type-1 diabetes glucose dynamics — basis for the
+                  patent-pending pseudo-pancreas.</p>
+                <div class="pchips"><span class="pchip">PINN</span><span class="pchip">PyTorch</span><span
+                    class="pchip">Healthcare</span></div>
+                <span class="plink">AICOMAS 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Project 4 -->
-    <div class="project-card">
-      <img src="assets/download (21).png" alt="Video Generation via Diffusion" class="project-img">
-      <h3 class="project-title">Apple Stock Prediction using Gaussian Process Regression</h3>
-      <p class="project-desc">Built a Gaussian Process Regression (GPR) time series model to forecast stock prices with uncertainty quantification, incorporating feature engineering and hyperparameter tuning for enhanced accuracy.</p>
-      <a href="https://github.com/vsingh10/Apple-Stock-Pred-via-GPR" class="project-link">More Details →</a>
-    </div>
-  </div>
-</section>
+      <!-- ═════ ACHIEVEMENTS ═════ -->
+      <section class="page" id="pg-achievements">
+        <div class="page-inner">
+          <header class="pg-head fade f1">
+            <div class="pg-eyebrow">07 / Achievements</div>
+            <h2 class="pg-title">A handful of <em>well-earned milestones.</em></h2>
+            <p class="pg-sub">Scholarships, fellowships, departmental ranks — markers along the way that keep the work
+              honest.</p>
+          </header>
 
+          <div class="split flip fade f2">
+            <div class="illus illus-corners" id="illus-achievements">
+              <span class="ic1"></span><span class="ic2"></span>
+              <div class="illus-meta"><span>CONSTELLATION</span><span>· 10 / 10</span></div>
+            </div>
+            <div class="ach-grid">
+              <div class="ach-card">
+                <div class="ach-icon"><i class="fas fa-award"></i></div>
+                <div>
+                  <h4>Merit Scholarship III · 2023–24</h4>
+                  <p>INR 1,59,000 for top-10% rank in Mechanical Engineering at TIET.</p>
+                </div>
+              </div>
+              <div class="ach-card">
+                <div class="ach-icon"><i class="fas fa-globe"></i></div>
+                <div>
+                  <h4>MITACS Globalink Fellowship</h4>
+                  <p>Fully-funded summer research at École Polytechnique de Montréal, Canada.</p>
+                </div>
+              </div>
+              <div class="ach-card">
+                <div class="ach-icon"><i class="fas fa-award"></i></div>
+                <div>
+                  <h4>Merit Scholarship III · 2022–23</h4>
+                  <p>INR 1,39,000 for top-10% rank in Mechanical Engineering at TIET.</p>
+                </div>
+              </div>
+              <div class="ach-card">
+                <div class="ach-icon"><i class="fas fa-medal"></i></div>
+                <div>
+                  <h4>3rd Rank — Mech Engg · 2022–23</h4>
+                  <p>Department-wide academic excellence certificate plus award.</p>
+                </div>
+              </div>
+              <div class="ach-card">
+                <div class="ach-icon"><i class="fas fa-flask"></i></div>
+                <div>
+                  <h4>Internal R&D Grant</h4>
+                  <p>Funded the early healthcare AI work that became the patent filing.</p>
+                </div>
+              </div>
+              <div class="ach-card">
+                <div class="ach-icon"><i class="fas fa-file-lines"></i></div>
+                <div>
+                  <h4>Multiple Paper Acceptances</h4>
+                  <p>MSML 2025, AICOMAS 2025, I-4AM 2026 — across journals and conferences.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- ═════ CERTIFICATIONS ═════ -->
+      <section class="page" id="pg-certifications">
+        <div class="page-inner">
+          <header class="pg-head fade f1">
+            <div class="pg-eyebrow">08 / Credentials</div>
+            <h2 class="pg-title">Verified courses and <em>formal stamps.</em></h2>
+            <p class="pg-sub">Coursework that closed gaps — Coursera, NPTEL, official issuer programs.</p>
+          </header>
 
-  <!-- Publication Section -->
-<section id="research" class="slide-in">
-  <h2 class="section-title">Research Work</h2>
-  <div class="tabs">
-    <button class="tab-button active" data-tab="journal">Journal</button>
-    <button class="tab-button" data-tab="conference">Conference</button>
-    <button class="tab-button" data-tab="patent">Patent</button>
-    <button class="tab-button" data-tab="book">Book Chapter</button>
-  </div>
+          <div class="split fade f2">
+            <div>
+              <div class="cert-grid">
+                <div class="cert-card">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-content"><i class="cc-icon fas fa-certificate"></i>
+                    <div class="cc-name">Machine Learning Specialization</div>
+                    <div class="cc-issuer">Coursera · DeepLearning.AI</div>
+                  </div>
+                </div>
+                <div class="cert-card">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-content"><i class="cc-icon fas fa-certificate"></i>
+                    <div class="cc-name">Deep Learning Specialization</div>
+                    <div class="cc-issuer">Coursera · Stanford</div>
+                  </div>
+                </div>
+                <div class="cert-card">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-content"><i class="cc-icon fas fa-certificate"></i>
+                    <div class="cc-name">TensorFlow Developer</div>
+                    <div class="cc-issuer">Coursera</div>
+                  </div>
+                </div>
+                <div class="cert-card">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-content"><i class="cc-icon fas fa-certificate"></i>
+                    <div class="cc-name">Python for Data Science</div>
+                    <div class="cc-issuer">NPTEL</div>
+                  </div>
+                </div>
+                <div class="cert-card">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-content"><i class="cc-icon fas fa-certificate"></i>
+                    <div class="cc-name">Julia Programming</div>
+                    <div class="cc-issuer">JuliaAcademy</div>
+                  </div>
+                </div>
+                <div class="cert-card">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-content"><i class="cc-icon fas fa-certificate"></i>
+                    <div class="cc-name">Foundations of Quantum</div>
+                    <div class="cc-issuer">Onramp · IBM</div>
+                  </div>
+                </div>
+                <div class="cert-card">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-content"><i class="cc-icon fas fa-certificate"></i>
+                    <div class="cc-name">Generative AI with LLMs</div>
+                    <div class="cc-issuer">Coursera · DeepLearning.AI</div>
+                  </div>
+                </div>
+                <div class="cert-card">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-content"><i class="cc-icon fas fa-certificate"></i>
+                    <div class="cc-name">Computer Vision Basics</div>
+                    <div class="cc-issuer">Coursera</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="illus illus-corners" id="illus-certifications">
+              <span class="ic1"></span><span class="ic2"></span>
+              <div class="illus-meta"><span>SIGNED · VERIFIED</span><span>· 8 / 8</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="tab-content active" id="journal">
-  <div class="research-card compact">
-    <h4>Physics-Informed Neural Network for Solving a One-Dimensional Solid Mechanics Problem</h4>
-    <p><strong>Singh, V.</strong>, Harursampath, D., Dhawan, S., Sahni, M., Saxena, S., Mallick, R.</p>
-    <p><em>Modelling, 2024, 5, 1532–1549</em></p>
-    <div class="tags">
-      <a href="https://doi.org/10.3390/modelling5040080" target="_blank" class="tag-btn">DOI</a>
-    </div>
-  </div>
+      <!-- ═════ CONTACT ═════ -->
+      <section class="page" id="pg-contact">
+        <div class="page-inner">
+          <div class="pg-eyebrow fade f1">09 / Contact</div>
+          <h2 class="pg-title fade f2" style="text-align:center;">Channel is <em>open.</em></h2>
+          <p class="pg-sub fade f3" style="text-align:center;">Drop a signal — research collaborations, internships, or
+            anything in the AI-for-science neighborhood.</p>
 
-  <div class="research-card compact">
-    <h4>Characterization and Detection of Structured False Data Injection in Reinforcement Learning-Controlled Artificial
-Pancreas Systems</h4>
-    <p><strong>Vishal Singh</strong>, et al.</p>
-    <p><em>Submitted to IEEE Transactions on Industrial Informatics</em></p>
-    <div class="tags">
-      <a class="tag-btn">Under Review</a>
-    </div>
-  </div>
+          <div class="contact-illus fade f3" id="illus-contact"></div>
 
-  <div class="research-card compact">
-    <h4>Neural Optimization Machine for Analytical Function Optimization: Application to Auxetic Metamaterial Design</h4>
-    <p><strong>Vishal Singh</strong>, et al.</p>
-    <p><em>Submitted to Journal of Computational Science</em></p>
-    <div class="tags">
-      <a class="tag-btn">Under Review</a>
-    </div>
-  </div>
+          <a href="mailto:vishalsinghforcv@email.com" class="email-link fade f4"><i class="fas fa-envelope"></i>&nbsp;
+            vishalsinghforcv@email.com</a>
 
-  <div class="research-card compact">
-    <h4>Neural Optimization of Anti-Tetrachiral Auxetic Metastructures for Advanced Engineering Applications</h4>
-    <p><strong>Vishal Singh</strong>, et al.</p>
-    <p><em>Ongoing Manuscript</em></p>
-    <div class="tags">
-      <a  class="tag-btn">In Progress</a>
-    </div>
-  </div>
+          <div class="contact-btns fade f5">
+            <a href="https://github.com/vsingh10" class="btn ghost" target="_blank"><i
+                class="fab fa-github"></i>GitHub</a>
+            <a href="https://www.linkedin.com/in/vishal-singh10/" class="btn ghost" target="_blank"><i
+                class="fab fa-linkedin-in"></i>LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=NOD9Y0UAAAAJ&hl=en" class="btn ghost" target="_blank"><i
+                class="fas fa-graduation-cap"></i>Scholar</a>
+          </div>
 
-  <div class="research-card compact">
-    <h4>Kolmogorov Arnold Network Based Data-driven Prognostics for Estimating the Remaining Useful Life of Aircraft
-Engines in Industry 4.0</h4>
-    <p><strong>Vishal Singh</strong>, et al.</p>
-    <p><em>Ongoing Manuscript</em></p>
-    <div class="tags">
-      <a class="tag-btn">In Progress</a>
-    </div>
-  </div>
-</div>
+          <p class="fn fade f6">© 2026 Vishal Singh · Built with <i class="fas fa-coffee"></i> and code · v 3.0</p>
+        </div>
+      </section>
 
+    </div><!-- /content -->
+  </div><!-- /stage -->
 
-
-<div class="tab-content" id="conference">
-  <!-- Paper 1 -->
-  <div class="research-card">
-    <h3>Physics Informed Neural Network for Modelling Glucose-Insulin Dynamics for Type 1 Diabetes</h3>
-    <p><strong>Vishal Singh</strong>, et al.</p>
-    <p><em>AICOMAS 2025, Paris, 17–21 February 2025</em></p>
-    <div class="tags">
-    </div>
-  </div>
-
-  <!-- Paper 2 -->
-  <div class="research-card">
-    <h3>Physics-Enhanced Neural Network Approach for Optimizing Re-Entrant Auxetic Structures in Advanced Engineering Applications</h3>
-    <p><strong>Vishal Singh</strong>, et al.</p>
-    <p><em>MSML 2025, Naples, Italy, August 4–8, 2025</em></p>
-    <div class="tags">
-    </div>
-  </div>
-</div>
-
-
-  <div class="tab-content" id="patent">
-    <div class="research-card">
-      <h3>Pseudo-Artificial Pancreas: A Low-Cost AI-Based Insulin Dosage Recommendation System for Type 1 Diabetes</h3>
-      <div class="tags">
-        <a href="#" class="tag-btn">Patent Filed</a>
-      </div>
-    </div>
-  </div>
-
-<div class="tab-content" id="book">
-  <!-- Existing Book Chapter -->
-
-  <!-- I4AM Book Chapter 1 -->
-  <div class="research-card">
-    <h3>An Artificial Intelligence-based Design Framework of Optimal Auxetic Metamaterial Structures</h3>
-    <p><strong>Vishal Singh</strong></p>
-    <p><em>To be presented at I4AM 2026, IISc Bengaluru; publication forthcoming in Springer</em></p>
-    <div class="tags">
-      <a href="#" class="tag-btn">Book Chapter</a>
-      <a href="#" class="tag-btn">Springer (TBA)</a>
-    </div>
-  </div>
-
-  <!-- I4AM Book Chapter 2 -->
-  <div class="research-card">
-    <h3>Design and Development of Piezoelectric Auxetic Energy Harvesting Devices for Engineering Applications</h3>
-    <p><strong>Vishal Singh</strong></p>
-    <p><em>To be presented at I4AM 2026, IISc Bengaluru; publication forthcoming in Springer</em></p>
-    <div class="tags">
-      <a href="#" class="tag-btn">Book Chapter</a>
-      <a href="#" class="tag-btn">Springer (TBA)</a>
-    </div>
-  </div>
-</div>
-
-</section>
-
-  <!-- Achievement Section -->
-<section id="achievements" class="achievements-section">
-  <h2 class="section-title">Achievements</h2>
-  <div class="achievement-box">
-    <div class="achievement-card">
-      <i class="fas fa-award icon"></i>
-      <div>
-        <h4>Merit Scholarship III (2023–24)</h4>
-        <p>Received INR 1,59,000 for ranking in the top 10% of the Mechanical Engineering Department, TIET.</p>
-      </div>
-    </div>
-    <div class="achievement-card">
-      <i class="fas fa-globe icon"></i>
-      <div>
-        <h4>MITACS Globalink Research Fellowship</h4>
-        <p>Secured a fully funded internship at École Polytechnique de Montréal, Canada (June–August 2024).</p>
-      </div>
-    </div>
-    <div class="achievement-card">
-      <i class="fas fa-award icon"></i>
-      <div>
-        <h4>Merit Scholarship III (2022–23)</h4>
-        <p>Awarded INR 1,39,000 for placing in the top 10% of Mechanical Engineering Department, TIET.</p>
-      </div>
-    </div>
-    <div class="achievement-card">
-      <i class="fas fa-medal icon"></i>
-      <div>
-        <h4>3rd Rank in Mechanical Engineering Department (2022–23)</h4>
-        <p>Received a certificate and INR 2,000 for academic excellence.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Certificate Section -->
-<section id="certifications" class="certifications-section">
-  <h2 class="section-title">Certifications</h2>
-  <div class="cert-grid">
-    <div class="cert-card"><img src="assets\cert\0.5.jpg" alt="Certificate 1"></div>
-    <div class="cert-card"><img src="assets\cert\Coursera FY8UARXR7HAP_page-0001.jpg" alt="Certificate 2"></div>
-    <div class="cert-card"><img src="assets\cert\Coursera X24D36ZAR4L9_page-0001.jpg" alt="Certificate 3"></div>
-    <div class="cert-card"><img src="assets\cert\Coursera 6LFHANRJ34B9_page-0001.jpg" alt="Certificate 4"></div>
-    <div class="cert-card"><img src="assets\cert\certificate284657118207fbafbc8d71699ba6315cbbd2084_page-0001.jpg" alt="Certificate 5"></div>
-    <div class="cert-card"><img src="assets\cert\fund.png" alt="Certificate 6"></div>
-    <div class="cert-card"><img src="assets\cert\onramp.png" alt="Certificate 7"></div>
-    <div class="cert-card"><img src="assets\cert\img.png" alt="Certificate 8"></div>
-  </div>
-</section>
-
-
-
-
-
-
-  <!-- Contact Section -->
-  <footer class="contact" id="contact">
-    <h2>Get in Touch</h2>
-    <p>You can reach me directly at:</p>
-    <a href="mailto:vishalsinghforcv@email.com" class="email-link">vishalsinghforcv@email.com</a>
-    <p class="footer-note">© 2025 Vishal Singh. Built with ☕ and code.</p>
-  </footer>
-
-  <!-- Theme Toggle Button -->
-  <button id="theme-toggle" title="Toggle Dark/Light Mode">
-    <i class="fas fa-moon"></i>
-  </button>
-
-  <!-- Theme Toggle Script -->
-  <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    const icon = toggleBtn.querySelector('i');
-    const body = document.body;
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      body.classList.add(storedTheme);
-      icon.className = storedTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
-    }
-    toggleBtn.addEventListener('click', () => {
-      const isLight = body.classList.toggle('light');
-      icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    });
-  </script>
-
-  <!-- tsparticles config -->
-  <script>
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: false },
-      background: { color: "transparent" },
-      fpsLimit: 60,
-      particles: {
-        number: { value: 130, density: { enable: true, area: 650 } },
-        color: { value: "#3b82f6" },
-        opacity: { value: 0.2 },
-        size: { value: 2 },
-        links: {
-          enable: true,
-          distance: 100,
-          color: "#3b82f6",
-          opacity: 0.2,
-          width: 1,
-        },
-        move: { enable: true, speed: 1, outModes: "bounce" },
-      },
-      interactivity: {
-        events: { onHover: { enable: true, mode: "repulse" }, resize: true },
-        modes: { repulse: { distance: 100, duration: 0.4 } },
-      },
-    });
-  </script>
-
-  <script>
-  document.querySelectorAll('.edu-tabs .tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Remove active class from all tabs and contents
-      document.querySelectorAll('.edu-tabs .tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-      // Add active class to clicked tab and its content
-      tab.classList.add('active');
-      const target = tab.getAttribute('data-tab');
-      document.querySelector(`.tab-content[data-content="${target}"]`).classList.add('active');
-    });
-  });
-  </script>
-
-<script>
-  const tabButtons = document.querySelectorAll('.tab-button');
-  const tabContents = document.querySelectorAll('.tab-content');
-
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tab = btn.dataset.tab;
-
-      tabButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      tabContents.forEach(content => {
-        content.classList.remove('active');
-        if (content.id === tab) {
-          content.classList.add('active');
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-right a");
-
-  function activateLinkOnScroll() {
-    let scrollY = window.pageYOffset;
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute("id");
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href").includes(sectionId)) {
-            link.classList.add("active");
-          }
-        });
-      }
-    });
-  }
-
-  window.addEventListener("scroll", activateLinkOnScroll);
-</script>
-
-
+  <script src="illustrations.js?v=2"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>
